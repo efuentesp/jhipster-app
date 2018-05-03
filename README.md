@@ -1,4 +1,15 @@
+## Notas
+
+- Se importa el proyecto en eclipse o en Visual Studio Code como un proyecto de Maven
+- Para que JHipster genere todas las tablas, es necesario crear previamente el esquema    con el mismo nombre del proyecto. (jhipster_app)
+- Modificar los archivos para la conección a la base de datos
+	a) src/main/resources/config/application-dev.yml
+	b) src/main/resources/config/application-prod.yml
+	c) pom.xml
+- Se ejecuta la aplicación en Tomcat
+
 # jhipster_app
+
 This application was generated using JHipster 4.14.3, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.14.3](http://www.jhipster.tech/documentation-archive/v4.14.3).
 
 ## Development
