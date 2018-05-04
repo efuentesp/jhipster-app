@@ -1,11 +1,16 @@
 ## Notas
 
+- Antes de levantar la aplicación es necesario instalar Yarn
+a) Abrir una línea de comandos
+b) Ir a la ruta del proyecto 
+c) Escribir yarn install
+d) Se generará en el proyecto una carpeta llamada node_modules (Contiene todas las librerias necesarias).
 - Se importa el proyecto en eclipse o en Visual Studio Code como un proyecto de Maven
 - Para que JHipster genere todas las tablas, es necesario crear previamente el esquema    con el mismo nombre del proyecto. (jhipster_app)
 - Modificar los archivos para la conección a la base de datos
-	a) src/main/resources/config/application-dev.yml
-	b) src/main/resources/config/application-prod.yml
-	c) pom.xml
+a) src/main/resources/config/application-dev.yml
+b) src/main/resources/config/application-prod.yml
+c) pom.xml
 - Se ejecuta la aplicación en Tomcat
 
 # jhipster_app
