@@ -1,5 +1,6 @@
 ## Notas
 
+# BL0
 - Antes de levantar la aplicación es necesario instalar Yarn
 a) Abrir una línea de comandos
 b) Ir a la ruta del proyecto 
@@ -12,6 +13,41 @@ a) src/main/resources/config/application-dev.yml
 b) src/main/resources/config/application-prod.yml
 c) pom.xml
 - Se ejecuta la aplicación en Tomcat
+
+# BL1
+- Para la generación de la entidad 1, se genera en JDL-studio (https://www.jhipster.tech/jdl-studio/) el *.jh con la entidad que requerimos, lo guardamos y automaticamente se descarga un archivo (en mi caso en Downloads).
+
+- Nombre del archivo: jhipster-jdl.jh
+
+- Código del archivo:
+
+entity Afiliado {
+	nombre String required
+    apellido_paterno String required
+    apellido_materno String
+    nss Integer required
+    salario Long
+    peso Float
+    datoDouble Double
+    datoBigDecimal BigDecimal
+    fechaAfiliacion LocalDate
+    datoInstant Instant
+    datoZone ZonedDateTime /* No es soportado por REST */
+    activo Boolean
+    fotografia Blob
+  
+}
+
+paginate Afiliado with pagination 
+
+- En consola y en la ruta de la aplicación se ejecutan las siguientes instrucciones:
+a) yo jhipster:import-jdl ~/Downloads/jhipster-jdl.jh
+b) yarn run cleanup
+c) yarn run webpack:build:main
+
+- Se actualiza el proyecto en eclipse
+- Se limpia el proyecto y el servidor
+- Se inicializa el servidor
 
 # jhipster_app
 
