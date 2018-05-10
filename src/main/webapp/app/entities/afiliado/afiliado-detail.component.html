@@ -1,0 +1,77 @@
+
+<div *ngIf="afiliado">
+    <h2><span jhiTranslate="jhipsterAppApp.afiliado.detail.title">Afiliado</span> {{afiliado.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{afiliado.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.apellidopaterno">Apellidopaterno</span></dt>
+        <dd>
+            <span>{{afiliado.apellidopaterno}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.apellidomaterno">Apellidomaterno</span></dt>
+        <dd>
+            <span>{{afiliado.apellidomaterno}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.nss">Nss</span></dt>
+        <dd>
+            <span>{{afiliado.nss}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.salario">Salario</span></dt>
+        <dd>
+            <span>{{afiliado.salario}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.peso">Peso</span></dt>
+        <dd>
+            <span>{{afiliado.peso}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.datoDouble">Dato Double</span></dt>
+        <dd>
+            <span>{{afiliado.datoDouble}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.datoBigDecimal">Dato Big Decimal</span></dt>
+        <dd>
+            <span>{{afiliado.datoBigDecimal}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.fechaAfiliacion">Fecha Afiliacion</span></dt>
+        <dd>
+            <span>{{afiliado.fechaAfiliacion | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.datoInstant">Dato Instant</span></dt>
+        <dd>
+            <span>{{afiliado.datoInstant | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.datoZone" [ngbTooltip]="'jhipsterAppApp.afiliado.help.datoZone' | translate">Dato Zone</span></dt>
+        <dd>
+            <span>{{afiliado.datoZone | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.activo">Activo</span></dt>
+        <dd>
+            <span>{{afiliado.activo}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.afiliado.fotografia">Fotografia</span></dt>
+        <dd>
+            <div *ngIf="afiliado.fotografia">
+                <a (click)="openFile(afiliado.fotografiaContentType, afiliado.fotografia)" jhiTranslate="entity.action.open">open</a>
+                {{afiliado.fotografiaContentType}}, {{byteSize(afiliado.fotografia)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'afiliado/'+ afiliado.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,75 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "apellidopaterno",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "apellidomaterno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nss",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "salario",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "peso",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "datoDouble",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "datoBigDecimal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "fechaAfiliacion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "datoInstant",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "datoZone",
+            "javadoc": "No es soportado por REST",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "activo",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fotografia",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20180510170157",
+    "entityTableName": "afiliado",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,93 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterAppApp.afiliado.home.title">Afiliados</span>
+        <button class="btn btn-primary float-right jh-create-entity create-afiliado" [routerLink]="['/', { outlets: { popup: ['afiliado-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterAppApp.afiliado.home.createLabel">
+            Create new Afiliado
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="afiliados">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="jhipsterAppApp.afiliado.nombre">Nombre</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="apellidopaterno"><span jhiTranslate="jhipsterAppApp.afiliado.apellidopaterno">Apellidopaterno</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="apellidomaterno"><span jhiTranslate="jhipsterAppApp.afiliado.apellidomaterno">Apellidomaterno</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nss"><span jhiTranslate="jhipsterAppApp.afiliado.nss">Nss</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="salario"><span jhiTranslate="jhipsterAppApp.afiliado.salario">Salario</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="peso"><span jhiTranslate="jhipsterAppApp.afiliado.peso">Peso</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="datoDouble"><span jhiTranslate="jhipsterAppApp.afiliado.datoDouble">Dato Double</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="datoBigDecimal"><span jhiTranslate="jhipsterAppApp.afiliado.datoBigDecimal">Dato Big Decimal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechaAfiliacion"><span jhiTranslate="jhipsterAppApp.afiliado.fechaAfiliacion">Fecha Afiliacion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="datoInstant"><span jhiTranslate="jhipsterAppApp.afiliado.datoInstant">Dato Instant</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="datoZone"><span jhiTranslate="jhipsterAppApp.afiliado.datoZone">Dato Zone</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="activo"><span jhiTranslate="jhipsterAppApp.afiliado.activo">Activo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fotografia"><span jhiTranslate="jhipsterAppApp.afiliado.fotografia">Fotografia</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let afiliado of afiliados ;trackBy: trackId">
+                <td><a [routerLink]="['../afiliado', afiliado.id ]">{{afiliado.id}}</a></td>
+                <td>{{afiliado.nombre}}</td>
+                <td>{{afiliado.apellidopaterno}}</td>
+                <td>{{afiliado.apellidomaterno}}</td>
+                <td>{{afiliado.nss}}</td>
+                <td>{{afiliado.salario}}</td>
+                <td>{{afiliado.peso}}</td>
+                <td>{{afiliado.datoDouble}}</td>
+                <td>{{afiliado.datoBigDecimal}}</td>
+                <td>{{afiliado.fechaAfiliacion | date:'mediumDate'}}</td>
+                <td>{{afiliado.datoInstant | date:'medium'}}</td>
+                <td>{{afiliado.datoZone | date:'medium'}}</td>
+                <td>{{afiliado.activo}}</td>
+                <td>
+                    <a *ngIf="afiliado.fotografia" (click)="openFile(afiliado.fotografiaContentType, afiliado.fotografia)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="afiliado.fotografia">{{afiliado.fotografiaContentType}}, {{byteSize(afiliado.fotografia)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../afiliado', afiliado.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'afiliado/'+ afiliado.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'afiliado/'+ afiliado.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="afiliados && afiliados.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
