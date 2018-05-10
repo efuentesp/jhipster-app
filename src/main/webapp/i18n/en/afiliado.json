@@ -1,0 +1,37 @@
+
+{
+    "jhipsterAppApp": {
+        "afiliado" : {
+            "home": {
+                "title": "Afiliados",
+                "createLabel": "Create a new Afiliado",
+                "createOrEditLabel": "Create or edit a Afiliado"
+            },
+            "created": "A new Afiliado is created with identifier {{ param }}",
+            "updated": "A Afiliado is updated with identifier {{ param }}",
+            "deleted": "A Afiliado is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Afiliado {{ id }}?"
+            },
+            "detail": {
+                "title": "Afiliado"
+            },
+            "nombre": "Nombre",
+            "apellidopaterno": "Apellidopaterno",
+            "apellidomaterno": "Apellidomaterno",
+            "nss": "Nss",
+            "salario": "Salario",
+            "peso": "Peso",
+            "datoDouble": "Dato Double",
+            "datoBigDecimal": "Dato Big Decimal",
+            "fechaAfiliacion": "Fecha Afiliacion",
+            "datoInstant": "Dato Instant",
+            "datoZone": "Dato Zone",
+            "activo": "Activo",
+            "fotografia": "Fotografia",
+            "help": {
+                "datoZone": "No es soportado por REST"
+            }
+        }
+    }
+}

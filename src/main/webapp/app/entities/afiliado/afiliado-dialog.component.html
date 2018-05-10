@@ -1,0 +1,134 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAfiliadoLabel" jhiTranslate="jhipsterAppApp.afiliado.home.createOrEditLabel">Create or edit a Afiliado</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!afiliado.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="afiliado.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                [(ngModel)]="afiliado.nombre" required/>
+            <div [hidden]="!(editForm.controls.nombre?.dirty && editForm.controls.nombre?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nombre?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.apellidopaterno" for="field_apellidopaterno">Apellidopaterno</label>
+            <input type="text" class="form-control" name="apellidopaterno" id="field_apellidopaterno"
+                [(ngModel)]="afiliado.apellidopaterno" required/>
+            <div [hidden]="!(editForm.controls.apellidopaterno?.dirty && editForm.controls.apellidopaterno?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.apellidopaterno?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.apellidomaterno" for="field_apellidomaterno">Apellidomaterno</label>
+            <input type="text" class="form-control" name="apellidomaterno" id="field_apellidomaterno"
+                [(ngModel)]="afiliado.apellidomaterno" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.nss" for="field_nss">Nss</label>
+            <input type="number" class="form-control" name="nss" id="field_nss"
+                [(ngModel)]="afiliado.nss" required/>
+            <div [hidden]="!(editForm.controls.nss?.dirty && editForm.controls.nss?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nss?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.nss?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.salario" for="field_salario">Salario</label>
+            <input type="number" class="form-control" name="salario" id="field_salario"
+                [(ngModel)]="afiliado.salario" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.peso" for="field_peso">Peso</label>
+            <input type="number" class="form-control" name="peso" id="field_peso"
+                [(ngModel)]="afiliado.peso" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.datoDouble" for="field_datoDouble">Dato Double</label>
+            <input type="number" class="form-control" name="datoDouble" id="field_datoDouble"
+                [(ngModel)]="afiliado.datoDouble" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.datoBigDecimal" for="field_datoBigDecimal">Dato Big Decimal</label>
+            <input type="number" class="form-control" name="datoBigDecimal" id="field_datoBigDecimal"
+                [(ngModel)]="afiliado.datoBigDecimal" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.fechaAfiliacion" for="field_fechaAfiliacion">Fecha Afiliacion</label>
+            <div class="input-group">
+                <input id="field_fechaAfiliacion" type="text" class="form-control" name="fechaAfiliacion" ngbDatepicker  #fechaAfiliacionDp="ngbDatepicker" [(ngModel)]="afiliado.fechaAfiliacion"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fechaAfiliacionDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.datoInstant" for="field_datoInstant">Dato Instant</label>
+            <div class="d-flex">
+                <input id="field_datoInstant" type="datetime-local" class="form-control" name="datoInstant" [(ngModel)]="afiliado.datoInstant"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.datoZone" for="field_datoZone" [ngbTooltip]="'jhipsterAppApp.afiliado.help.datoZone' | translate">Dato Zone</label>
+            <div class="d-flex">
+                <input id="field_datoZone" type="datetime-local" class="form-control" name="datoZone" [(ngModel)]="afiliado.datoZone"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.activo" for="field_activo">Activo</label>
+            <input type="checkbox" class="form-control" name="activo" id="field_activo"
+                [(ngModel)]="afiliado.activo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.afiliado.fotografia" for="field_fotografia">Fotografia</label>
+            <div>
+                <div *ngIf="afiliado.fotografia" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(afiliado.fotografiaContentType, afiliado.fotografia)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{afiliado.fotografiaContentType}}, {{byteSize(afiliado.fotografia)}}</span>
+                    <button type="button" (click)="afiliado.fotografia=null;afiliado.fotografiaContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_fotografia" (change)="setFileData($event, afiliado, 'fotografia', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="fotografia" id="field_fotografia"
+                [(ngModel)]="afiliado.fotografia" />
+            <input type="hidden" class="form-control" name="fotografiaContentType" id="field_fotografiaContentType"
+                [(ngModel)]="afiliado.fotografiaContentType" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
