@@ -45,6 +45,9 @@ public class CacheConfiguration {
             cm.createCache(com.softtek.jhipster.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.softtek.jhipster.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(com.softtek.jhipster.domain.Afiliado.class.getName(), jcacheConfiguration);
+            cm.createCache(com.softtek.jhipster.domain.Modulo.class.getName(), jcacheConfiguration);
+            cm.createCache(com.softtek.jhipster.domain.SubModulo.class.getName(), jcacheConfiguration);
+            cm.createCache(com.softtek.jhipster.domain.UserAuthoritySubModulo.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

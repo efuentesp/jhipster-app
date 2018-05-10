@@ -6,6 +6,9 @@
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180510170157_added_entity_Afiliado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510172445_added_entity_Modulo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510172446_added_entity_SubModulo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180510172447_added_entity_UserAuthoritySubModulo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,46 @@
+
+<div *ngIf="subModulo">
+    <h2><span jhiTranslate="jhipsterAppApp.subModulo.detail.title">Sub Modulo</span> {{subModulo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterAppApp.subModulo.idSubModulo">Id Sub Modulo</span></dt>
+        <dd>
+            <span>{{subModulo.idSubModulo}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.subModulo.idModulo">Id Modulo</span></dt>
+        <dd>
+            <span>{{subModulo.idModulo}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.subModulo.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{subModulo.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.subModulo.estatus">Estatus</span></dt>
+        <dd>
+            <span>{{subModulo.estatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.subModulo.fechaCreacion">Fecha Creacion</span></dt>
+        <dd>
+            <span>{{subModulo.fechaCreacion | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterAppApp.subModulo.fechaModificacion">Fecha Modificacion</span></dt>
+        <dd>
+            <span>{{subModulo.fechaModificacion | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sub-modulo/'+ subModulo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.home.title">User Authority Sub Modulos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-user-authority-sub-modulo" [routerLink]="['/', { outlets: { popup: ['user-authority-sub-modulo-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.home.createLabel">
+            Create new User Authority Sub Modulo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="userAuthoritySubModulos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idSubModulo"><span jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.idSubModulo">Id Sub Modulo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idUserAuthority"><span jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.idUserAuthority">Id User Authority</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estatus"><span jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.estatus">Estatus</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechaCreacion"><span jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.fechaCreacion">Fecha Creacion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechaModificacion"><span jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.fechaModificacion">Fecha Modificacion</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let userAuthoritySubModulo of userAuthoritySubModulos ;trackBy: trackId">
+                <td><a [routerLink]="['../user-authority-sub-modulo', userAuthoritySubModulo.id ]">{{userAuthoritySubModulo.id}}</a></td>
+                <td>{{userAuthoritySubModulo.idSubModulo}}</td>
+                <td>{{userAuthoritySubModulo.idUserAuthority}}</td>
+                <td>{{userAuthoritySubModulo.estatus}}</td>
+                <td>{{userAuthoritySubModulo.fechaCreacion | date:'mediumDate'}}</td>
+                <td>{{userAuthoritySubModulo.fechaModificacion | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../user-authority-sub-modulo', userAuthoritySubModulo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-authority-sub-modulo/'+ userAuthoritySubModulo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-authority-sub-modulo/'+ userAuthoritySubModulo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="userAuthoritySubModulos && userAuthoritySubModulos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

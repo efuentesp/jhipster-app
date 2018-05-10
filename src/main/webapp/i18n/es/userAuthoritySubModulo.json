@@ -1,0 +1,26 @@
+
+{
+    "jhipsterAppApp": {
+        "userAuthoritySubModulo" : {
+            "home": {
+                "title": "User Authority Sub Modulos",
+                "createLabel": "Crear nuevo User Authority Sub Modulo",
+                "createOrEditLabel": "Crear o editar User Authority Sub Modulo"
+            },
+            "created": "Un nuevo User Authority Sub Modulo ha sido creado con el identificador {{ param }}",
+            "updated": "Un User Authority Sub Modulo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un User Authority Sub Modulo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar User Authority Sub Modulo {{ id }}?"
+            },
+            "detail": {
+                "title": "User Authority Sub Modulo"
+            },
+            "idSubModulo": "Id Sub Modulo",
+            "idUserAuthority": "Id User Authority",
+            "estatus": "Estatus",
+            "fechaCreacion": "Fecha Creacion",
+            "fechaModificacion": "Fecha Modificacion"
+        }
+    }
+}

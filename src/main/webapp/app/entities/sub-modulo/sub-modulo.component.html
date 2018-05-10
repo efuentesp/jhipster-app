@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterAppApp.subModulo.home.title">Sub Modulos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-sub-modulo" [routerLink]="['/', { outlets: { popup: ['sub-modulo-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterAppApp.subModulo.home.createLabel">
+            Create new Sub Modulo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="subModulos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idSubModulo"><span jhiTranslate="jhipsterAppApp.subModulo.idSubModulo">Id Sub Modulo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idModulo"><span jhiTranslate="jhipsterAppApp.subModulo.idModulo">Id Modulo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="jhipsterAppApp.subModulo.nombre">Nombre</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estatus"><span jhiTranslate="jhipsterAppApp.subModulo.estatus">Estatus</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechaCreacion"><span jhiTranslate="jhipsterAppApp.subModulo.fechaCreacion">Fecha Creacion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechaModificacion"><span jhiTranslate="jhipsterAppApp.subModulo.fechaModificacion">Fecha Modificacion</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let subModulo of subModulos ;trackBy: trackId">
+                <td><a [routerLink]="['../sub-modulo', subModulo.id ]">{{subModulo.id}}</a></td>
+                <td>{{subModulo.idSubModulo}}</td>
+                <td>{{subModulo.idModulo}}</td>
+                <td>{{subModulo.nombre}}</td>
+                <td>{{subModulo.estatus}}</td>
+                <td>{{subModulo.fechaCreacion | date:'mediumDate'}}</td>
+                <td>{{subModulo.fechaModificacion | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sub-modulo', subModulo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sub-modulo/'+ subModulo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sub-modulo/'+ subModulo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="subModulos && subModulos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

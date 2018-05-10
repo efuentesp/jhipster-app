@@ -8,6 +8,9 @@
             "entities": {
                 "main": "Entidades",
                 "afiliado": "Afiliado",
+                "modulo": "Modulo",
+                "subModulo": "Sub Modulo",
+                "userAuthoritySubModulo": "User Authority Sub Modulo",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

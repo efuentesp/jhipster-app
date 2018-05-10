@@ -1,0 +1,27 @@
+
+{
+    "jhipsterAppApp": {
+        "subModulo" : {
+            "home": {
+                "title": "Sub Modulos",
+                "createLabel": "Crear nuevo Sub Modulo",
+                "createOrEditLabel": "Crear o editar Sub Modulo"
+            },
+            "created": "Un nuevo Sub Modulo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Sub Modulo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Sub Modulo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Sub Modulo {{ id }}?"
+            },
+            "detail": {
+                "title": "Sub Modulo"
+            },
+            "idSubModulo": "Id Sub Modulo",
+            "idModulo": "Id Modulo",
+            "nombre": "Nombre",
+            "estatus": "Estatus",
+            "fechaCreacion": "Fecha Creacion",
+            "fechaModificacion": "Fecha Modificacion"
+        }
+    }
+}

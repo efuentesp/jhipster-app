@@ -1,0 +1,80 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUserAuthoritySubModuloLabel" jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.home.createOrEditLabel">Create or edit a User Authority Sub Modulo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!userAuthoritySubModulo.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="userAuthoritySubModulo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.idSubModulo" for="field_idSubModulo">Id Sub Modulo</label>
+            <input type="number" class="form-control" name="idSubModulo" id="field_idSubModulo"
+                [(ngModel)]="userAuthoritySubModulo.idSubModulo" required/>
+            <div [hidden]="!(editForm.controls.idSubModulo?.dirty && editForm.controls.idSubModulo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idSubModulo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.idSubModulo?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.idUserAuthority" for="field_idUserAuthority">Id User Authority</label>
+            <input type="number" class="form-control" name="idUserAuthority" id="field_idUserAuthority"
+                [(ngModel)]="userAuthoritySubModulo.idUserAuthority" required/>
+            <div [hidden]="!(editForm.controls.idUserAuthority?.dirty && editForm.controls.idUserAuthority?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idUserAuthority?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.idUserAuthority?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.estatus" for="field_estatus">Estatus</label>
+            <input type="checkbox" class="form-control" name="estatus" id="field_estatus"
+                [(ngModel)]="userAuthoritySubModulo.estatus" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.fechaCreacion" for="field_fechaCreacion">Fecha Creacion</label>
+            <div class="input-group">
+                <input id="field_fechaCreacion" type="text" class="form-control" name="fechaCreacion" ngbDatepicker  #fechaCreacionDp="ngbDatepicker" [(ngModel)]="userAuthoritySubModulo.fechaCreacion"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fechaCreacionDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterAppApp.userAuthoritySubModulo.fechaModificacion" for="field_fechaModificacion">Fecha Modificacion</label>
+            <div class="input-group">
+                <input id="field_fechaModificacion" type="text" class="form-control" name="fechaModificacion" ngbDatepicker  #fechaModificacionDp="ngbDatepicker" [(ngModel)]="userAuthoritySubModulo.fechaModificacion"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fechaModificacionDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
